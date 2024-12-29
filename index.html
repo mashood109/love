@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf6e3;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        .question {
+            font-size: 24px;
+            color: #d2691e;
+            margin: 20px 0;
+        }
+
+        .buttons {
+            position: relative;
+            display: inline-block;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #yes-button {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        #no-button {
+            background-color: #dddddd;
+            color: black;
+            position: absolute;
+        }
+
+        #no-button:hover {
+            animation: move 0.5s;
+        }
+
+        @keyframes move {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(calc(50px - 100%), calc(50px - 100%));
+            }
+        }
+
+        .love-message {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .love-message img {
+            width: 200px;
+        }
+
+        .love-message .text {
+            font-size: 24px;
+            color: #d2691e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="initial-view">
+            <img src="gif2.webp" alt="Cute hamster illustration">
+            <div class="question">Do you love me?</div>
+            <div class="buttons">
+                <button id="yes-button">Yes</button>
+                <button id="no-button">No</button>
+            </div>
+        </div>
+
+        <div id="love-message" class="love-message">
+            <img src="gif1.webp" alt="to">
+            <div class="text">I love you too! 😘</div>
+        </div>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yes-button');
+        const noButton = document.getElementById('no-button');
+        const initialView = document.getElementById('initial-view');
+        const loveMessage = document.getElementById('love-message');
+
+        yesButton.addEventListener('click', () => {
+            initialView.style.display = 'none';
+            loveMessage.style.display = 'block';
+        });
+
+        noButton.addEventListener('mouseover', () => {
+            const randomX = Math.random() * window.innerWidth * 0.8;
+            const randomY = Math.random() * window.innerHeight * 0.8;
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
+    </script>
+</body>
+</html>
